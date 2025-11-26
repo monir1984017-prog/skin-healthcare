@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Win $500 – Dark Mode + Animations</title>
+
+<style>
+  :root {
+    --bg: #f2f2f2;
+    --card: #fff;
+    --text: #222;
+    --btn: #007bff;
+    --btn-hover: #0056c9;
+  }
+
+  body.dark {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --text: #eaeaea;
+    --btn: #0a84ff;
+    --btn-hover: #0064d6;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background .3s, color .3s;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: var(--card);
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .8s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  p {
+    text-align: center;
+    font-size: 16px;
+    animation: fadeIn 1.2s ease;
+  }
+
+  .hero-img img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeInImg 1.4s ease forwards;
+  }
+
+  @keyframes fadeInImg {
+    to { opacity: 1; }
+  }
+
+  .btn {
+    width: 100%;
+    background: var(--btn);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background .3s, transform .2s;
+    animation: fadeIn 1.8s ease;
+  }
+
+  .btn:hover {
+    background: var(--btn-hover);
+    transform: scale(1.03);
+  }
+
+  .toggle-dark {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: var(--card);
+    color: var(--text);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #555;
+    transition: .3s;
+  }
+
+  .toggle-dark:hover {
+    opacity: 0.7;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 25px;
+    opacity: 0.7;
+    animation: fadeIn 2s ease;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="toggle-dark" onclick="toggleDark()">🌙 Dark Mode</div>
+
+<div class="container">
+  <h1>🎉 Win $500 Cash!</h1>
+  <p>Click below and complete 1 step to enter the draw.</p>
+
+  <div class="hero-img">
+    <img src="https://cdn.pixabay.com/photo/2024/03/11/14/36/ai-generated-8626818_1280.png" alt="Reward">
+  </div>
+
+  <button class="btn" onclick="goOffer()">👉 Enter Now</button>
+
+  <footer>© 2025 Sweepstakes Promo</footer>
+</div>
+
+<script>
+function goOffer() {
+  window.location.href = "https://www.mobtrk.link/view.php?id=5542275&pub=3315800";
+}
+
+function toggleDark() {
+  document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
