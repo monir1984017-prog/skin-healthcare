@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Win $500 – Dark Mode + Animations</title>
+<title>Win Amazon Gift Card – V5 Dark Mode</title>
 
 <style>
   :root {
-    --bg: #f2f2f2;
-    --card: #fff;
+    --bg: #f4f4f4;
+    --card: #ffffff;
     --text: #222;
-    --btn: #007bff;
-    --btn-hover: #0056c9;
+    --btn: #ff9900;
+    --btn-hover: #cc7a00;
   }
 
   body.dark {
-    --bg: #121212;
-    --card: #1e1e1e;
+    --bg: #0f0f0f;
+    --card: #1a1a1a;
     --text: #eaeaea;
-    --btn: #0a84ff;
-    --btn-hover: #0064d6;
+    --btn: #ffa41c;
+    --btn-hover: #d18411;
   }
 
   body {
@@ -30,66 +30,81 @@
     transition: background .3s, color .3s;
   }
 
+  .toggle-dark {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    background: var(--card);
+    color: var(--text);
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .3s;
+    z-index: 999;
+  }
+
+  .toggle-dark:hover {
+    opacity: .7;
+  }
+
   .container {
     max-width: 600px;
-    margin: 30px auto;
+    margin: 40px auto;
     background: var(--card);
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 22px;
     border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.15);
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp .8s ease forwards;
+    transform: translateY(25px);
+    animation: fadeUp .8s forwards ease;
   }
 
   @keyframes fadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   h1 {
     text-align: center;
-    font-size: 28px;
     margin-bottom: 10px;
     animation: fadeIn 1s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
+    from {opacity: 0;} to {opacity: 1;}
+  }
+
+  .hero-img img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeImg 1.2s forwards ease;
+  }
+
+  @keyframes fadeImg {
     to { opacity: 1; }
   }
 
   p {
     text-align: center;
-    font-size: 16px;
-    animation: fadeIn 1.2s ease;
-  }
-
-  .hero-img img {
-    width: 100%;
-    border-radius: 10px;
-    margin: 20px 0;
-    opacity: 0;
-    animation: fadeInImg 1.4s ease forwards;
-  }
-
-  @keyframes fadeInImg {
-    to { opacity: 1; }
+    font-size: 17px;
+    line-height: 1.4;
+    animation: fadeIn 1.4s ease;
   }
 
   .btn {
     width: 100%;
+    padding: 15px;
     background: var(--btn);
-    color: white;
-    padding: 14px;
+    color: #fff;
     border: none;
-    border-radius: 8px;
-    font-size: 18px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 15px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background .3s, transform .2s;
+    transition: .3s;
     animation: fadeIn 1.8s ease;
   }
 
@@ -98,29 +113,11 @@
     transform: scale(1.03);
   }
 
-  .toggle-dark {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: var(--card);
-    color: var(--text);
-    padding: 8px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    border: 1px solid #555;
-    transition: .3s;
-  }
-
-  .toggle-dark:hover {
-    opacity: 0.7;
-  }
-
   footer {
     text-align: center;
-    font-size: 14px;
     margin-top: 25px;
-    opacity: 0.7;
+    opacity: .7;
+    font-size: 14px;
     animation: fadeIn 2s ease;
   }
 </style>
@@ -131,21 +128,21 @@
 <div class="toggle-dark" onclick="toggleDark()">🌙 Dark Mode</div>
 
 <div class="container">
-  <h1>🎉 Win $500 Cash!</h1>
-  <p>Click below and complete 1 step to enter the draw.</p>
+  <h1>🎁 Win Amazon Gift Cards!</h1>
+  <p>Click below, complete 1 step, and claim your reward entry.</p>
 
   <div class="hero-img">
-    <img src="https://cdn.pixabay.com/photo/2024/03/11/14/36/ai-generated-8626818_1280.png" alt="Reward">
+    <img src="https://www.canadiansavers.ca/wp-content/uploads/2019/12/win-amazon-gift-cards-450x375.jpg.webp" alt="Amazon Gift Card">
   </div>
 
-  <button class="btn" onclick="goOffer()">👉 Enter Now</button>
+  <button class="btn" onclick="goOffer()">🎉 Claim Your Reward</button>
 
-  <footer>© 2025 Sweepstakes Promo</footer>
+  <footer>© 2025 Promotional Giveaway</footer>
 </div>
 
 <script>
 function goOffer() {
-  window.location.href = "https://www.mobtrk.link/view.php?id=5542275&pub=3315800";
+  window.location.href = "https://www.lnkmeup.com/view.php?id=5542794&pub=3315800";
 }
 
 function toggleDark() {
