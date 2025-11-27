@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Win Amazon Gift Cards — V5 (Dark, Geo, Timer, Rotator)</title>
-<meta name="description" content="Enter to win Amazon gift cards — limited time sweepstakes. Confirm entry to continue." />
+<title>Win $500 — V5 (Dark, Geo, Timer, Rotator)</title>
+<meta name="description" content="Enter to win $500 — limited time sweepstakes. Confirm entry to continue." />
 <style>
-  /* ---------- Reset & variables ---------- */
   :root{
     --bg:#f5f7fb; --card:#fff; --text:#111; --muted:#6b7280;
     --primary:#ff3366; --accent:#ff7aa0;
@@ -15,78 +14,43 @@
   *{box-sizing:border-box}
   html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
-
-  /* ---------- Layout ---------- */
   .page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
   .card{width:100%;max-width:980px;background:var(--card);border-radius:16px;box-shadow:0 12px 40px rgba(2,6,23,0.08);overflow:hidden;display:grid;grid-template-columns:1fr 420px;gap:24px;padding:28px}
   @media(max-width:920px){.card{grid-template-columns:1fr;padding:18px} .right{order:-1}}
-
-  /* ---------- Left column ---------- */
   .headline{font-size:28px;line-height:1.02;margin:0 0 8px;font-weight:700}
   .sub{color:var(--muted);margin:0 0 16px}
-  .benefits{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
-  .pill{background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;padding:8px 12px;border-radius:999px;font-weight:600}
-
-  /* CTA */
   .cta-row{display:flex;gap:12px;align-items:center}
   .btn{background:var(--primary);color:#fff;padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
   .btn.ghost{background:transparent;color:var(--primary);border:2px solid var(--primary)}
-
-  /* small trust row */
   .trust{display:flex;gap:10px;margin-top:12px;color:var(--muted);font-size:13px;flex-wrap:wrap}
-
-  /* right column (image/form) */
   .right{background:linear-gradient(180deg,#fff,#fff);padding:18px;border-radius:12px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start}
-  .hero-img{width:100%;height:260px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff,#ffeef6)}
+  .hero-img{width:100%;height:260px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff}
   .hero-img img{max-width:100%;height:100%;object-fit:cover}
-
   .form{margin-top:14px;background:transparent}
   .form .input{width:100%;padding:12px;border-radius:10px;border:1px solid #eee;margin-bottom:10px;font-size:15px}
   .note{font-size:13px;color:var(--muted)}
-
-  /* sticky CTA */
   .sticky{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;padding:12px 18px;border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,0.18);cursor:pointer;z-index:9999}
-
-  /* prelander modal */
   .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.55);display:flex;align-items:center;justify-content:center;z-index:10000}
   .modal{width:92%;max-width:720px;background:var(--card);padding:22px;border-radius:12px}
   .modal h3{margin:0 0 8px}
   .modal p{color:var(--muted);margin:0 0 14px}
-
-  /* countdown */
   .count{font-weight:800;color:var(--primary);font-size:20px;margin-left:6px}
-
-  /* small responsive fixes */
-  @media (max-width:540px){
-    .hero-img{height:180px}
-    .headline{font-size:22px}
-  }
-
-  /* subtle animations */
   .fadeIn{animation:fadeIn .9s ease both}
   @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<script>
-/* ---------- FRAMEBUST / CLICKJACK PROTECTION ---------- */
-if (window.top !== window.self) {
-  try { window.top.location.href = window.self.location.href; } catch(e){ /* fail silently */ }
-}
-</script>
 
-<!-- MASTER PAGE -->
 <div class="page">
-  <div class="card fadeIn" role="main" aria-labelledby="heroTitle">
+  <div class="card fadeIn">
 
-    <!-- LEFT: Copy -->
     <div>
       <div style="display:flex;gap:12px;align-items:center;margin-bottom:6px">
         <div class="pill">Limited</div>
         <div style="color:var(--muted);font-size:13px">Free entry — pay only shipping</div>
       </div>
 
-      <h1 id="heroTitle" class="headline">🎉 Win Amazon Gift Cards — Limited Entries</h1>
+      <h1 class="headline">🎉 Win $500 Cash — Limited Entries</h1>
       <p class="sub">Quick one-step confirmation. No hidden subscriptions. Secure & fair draw.</p>
 
       <div class="cta-row" style="margin-top:8px">
@@ -97,48 +61,41 @@ if (window.top !== window.self) {
       <div class="trust">
         <div>🔒 Secure</div>
         <div>⭐ 4.8/5 Trustscore</div>
-        <div id="samplesText">Only <strong id="samplesLeft">25</strong> samples left</div>
+        <div>Only <strong id="samplesLeft">25</strong> samples left</div>
         <div>⏳ <span id="countdown" class="count">00:00:00</span></div>
-      </div>
-
-      <div class="benefits" style="margin-top:18px">
-        <div style="background:linear-gradient(180deg,#fff,#fff);padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(2,6,23,0.04)"><strong>Fast Payout</strong><div style="color:var(--muted)">Average payout within 48h</div></div>
-        <div style="background:linear-gradient(180deg,#fff,#fff);padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(2,6,23,0.04)"><strong>Easy Entry</strong><div style="color:var(--muted)">Only email & postal code</div></div>
       </div>
     </div>
 
-    <!-- RIGHT: Image + Form -->
     <aside class="right">
-      <div class="hero-img" aria-hidden="true">
-        <!-- REPLACED HERO IMAGE -->
-        <img id="heroImage" src="https://www.canadiansavers.ca/wp-content/uploads/2019/12/win-amazon-gift-cards-450x375.jpg.webp" alt="Amazon Gift Card">
+      <div class="hero-img">
+        <img id="heroImage"
+          src="https://www.canadiansavers.ca/wp-content/uploads/2019/12/win-amazon-gift-cards-450x375.jpg.webp"
+          alt="Prize image">
       </div>
 
       <div class="form">
         <form id="leadForm" onsubmit="return onFormSubmit(event)">
-          <input class="input" name="email" type="email" placeholder="Email address" required aria-label="email">
-          <input class="input" name="zip" type="text" placeholder="Zip / Postal code" required aria-label="postal code">
-          <!-- human-check -->
+          <input class="input" name="email" type="email" placeholder="Email address" required>
+          <input class="input" name="zip" type="text" placeholder="Zip / Postal code" required>
           <label style="display:flex;gap:8px;align-items:center;font-size:13px;margin-bottom:8px">
             <input type="checkbox" id="humanCheck" required> I confirm I am a real person
           </label>
           <button class="btn" type="submit">Confirm & Continue →</button>
         </form>
-        <div class="note" style="margin-top:8px">You will be redirected to confirm your free sample. No hidden subscription charges.</div>
+        <div class="note">You will be redirected to confirm your free sample. No hidden subscription charges.</div>
       </div>
     </aside>
 
   </div>
 </div>
 
-<!-- Sticky CTA -->
 <div class="sticky" id="stickyCTA">Claim Now</div>
 
 <!-- Prelander Modal -->
 <div id="prelanderModal" class="modal-backdrop" style="display:none">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="preTitle">
-    <h3 id="preTitle">Quick — Confirm Your Spot</h3>
-    <p>Our free sample program selects winners weekly. Confirming your entry takes 2 minutes. You can cancel at any time.</p>
+  <div class="modal">
+    <h3>Quick — Confirm Your Spot</h3>
+    <p>Our free sample program selects winners weekly. Confirming your entry takes 2 minutes.</p>
     <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
       <button class="btn ghost" id="modalClose">Not now</button>
       <button class="btn" id="modalProceed">Yes, Continue →</button>
@@ -147,68 +104,37 @@ if (window.top !== window.self) {
 </div>
 
 <script>
-/* =========================
-   V5 JavaScript
-   - Offer rotator
-   - Geo-detect (best-effort)
-   - Countdown timer & remaining samples
-   - Prelander modal flow
-   - Form handling + local storage
-   - Pixel placeholders
-   =========================*/
-
-/* ---------- CONFIG ---------- */
-// DEFAULT OFFER REPLACED with your provided link
 const OFFERS = {
   "default": "https://www.lnkmeup.com/view.php?id=5542794&pub=3315800"
 };
 
-/* Pixel hooks (place your pixel init calls inside these functions) */
-function initPixels(){ 
-  // Example placeholders: paste your pixel snippets here, e.g. fbq('init','YOUR_FB_ID');
-  console.log("Pixels init placeholder");
-}
-function trackEvent(name, data){
-  console.log("TrackEvent:", name, data);
-  // fbq('track', name, data);
-  // ttq.track(name, data);
-  // gtag('event', name, data);
-}
-
-/* ---------- GEO DETECTION (best-effort) ---------- */
 async function detectCountry(){
   try{
     const res = await fetch('https://ipapi.co/json/');
-    if(!res.ok) throw new Error("geo failed");
     const js = await res.json();
-    if(js && js.country) return js.country;
-  }catch(e){
-    console.warn("Geo detect failed:", e);
-  }
-  return null; // unknown
+    return js.country || null;
+  }catch(e){ return null; }
 }
 
-/* ---------- OFFER ROTATOR ---------- */
 async function chooseOffer(){
   const country = await detectCountry();
   if(country && OFFERS[country]) return OFFERS[country];
-  if(OFFERS["default"]) return OFFERS["default"];
-  return Object.values(OFFERS)[0] || window.location.href;
+  return OFFERS["default"];
 }
 
-/* ---------- TIMER & STOCK SIMULATION ---------- */
 const TIMER_KEY = 'kitv5_timer_end';
 const SAMPLES_KEY = 'kitv5_samples';
+
 function initTimer(){
   let end = localStorage.getItem(TIMER_KEY);
   if(!end){
-    const ms = Date.now() + 10*60*1000; // 10 minutes
-    localStorage.setItem(TIMER_KEY, String(ms));
-    end = ms;
+    end = Date.now() + 10*60*1000;
+    localStorage.setItem(TIMER_KEY, end);
   }
   if(!localStorage.getItem(SAMPLES_KEY)) localStorage.setItem(SAMPLES_KEY, "25");
-  startCountdown(+localStorage.getItem(TIMER_KEY));
+  startCountdown(+end);
 }
+
 function startCountdown(endTs){
   const el = document.getElementById('countdown');
   const samplesEl = document.getElementById('samplesLeft');
@@ -216,47 +142,44 @@ function startCountdown(endTs){
     const now = Date.now();
     let diff = endTs - now;
     if(diff <= 0){
-      localStorage.setItem(TIMER_KEY, String(Date.now() + 10*60*1000));
-      endTs = +localStorage.getItem(TIMER_KEY);
-      let s = Math.max(5, (+localStorage.getItem(SAMPLES_KEY) - 1));
-      localStorage.setItem(SAMPLES_KEY, String(s));
+      endTs = Date.now() + 10*60*1000;
+      localStorage.setItem(TIMER_KEY, endTs);
+      let s = Math.max(5,(+localStorage.getItem(SAMPLES_KEY)-1));
+      localStorage.setItem(SAMPLES_KEY, s);
       samplesEl.innerText = s;
-      trackEvent('timer_refill',{samples:s});
       diff = endTs - now;
     }
-    const h = Math.floor(diff/3600000)%24;
     const m = Math.floor(diff/60000)%60;
     const s2 = Math.floor(diff/1000)%60;
-    el.innerText = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s2).padStart(2,'0')}`;
+    el.innerText = `00:${String(m).padStart(2,'0')}:${String(s2).padStart(2,'0')}`;
   }
-  document.getElementById('samplesLeft').innerText = localStorage.getItem(SAMPLES_KEY);
+  samplesEl.innerText = localStorage.getItem(SAMPLES_KEY);
   tick();
-  setInterval(tick, 1000);
+  setInterval(tick,1000);
 }
 
-/* ---------- PRELANDER FLOW ---------- */
-const preModal = document.getElementById('prelanderModal');
-document.getElementById('openPrelanderBtn').addEventListener('click', ()=>{ preModal.style.display='flex'; trackEvent('open_prelander',{}); });
-document.getElementById('modalClose').addEventListener('click', ()=>{ preModal.style.display='none'; });
-document.getElementById('modalProceed').addEventListener('click', async ()=>{
-  preModal.style.display='none';
-  trackEvent('prelander_proceed',{});
-  document.getElementById('leadForm').scrollIntoView({behavior:'smooth'});
+document.getElementById('openPrelanderBtn')
+  .addEventListener('click',()=>{document.getElementById('prelanderModal').style.display='flex';});
+
+document.getElementById('modalClose')
+  .addEventListener('click',()=>{document.getElementById('prelanderModal').style.display='none';});
+
+document.getElementById('modalProceed')
+  .addEventListener('click',()=>{
+    document.getElementById('prelanderModal').style.display='none';
+    document.getElementById('leadForm').scrollIntoView({behavior:'smooth'});
 });
 
-/* sticky CTA */
-document.getElementById('stickyCTA').addEventListener('click', ()=>{ document.getElementById('leadForm').scrollIntoView({behavior:'smooth'}); });
+document.getElementById('stickyCTA')
+  .addEventListener('click',()=>{document.getElementById('leadForm').scrollIntoView({behavior:'smooth'})});
 
-/* show HOW button */
-document.getElementById('howBtn').addEventListener('click', ()=>{ alert('Tap Confirm & Continue to go to the confirmation page. Winners chosen weekly.'); });
+document.getElementById('howBtn')
+  .addEventListener('click',()=>{alert('Tap Confirm & Continue to go to the confirmation page. Winners chosen weekly.');});
 
-/* ---------- FORM HANDLING ---------- */
 function saveLeadLocally(lead){
-  const KEY = 'kitv5_leads';
-  const arr = JSON.parse(localStorage.getItem(KEY) || '[]');
-  arr.push({...lead, ts: new Date().toISOString()});
-  localStorage.setItem(KEY, JSON.stringify(arr));
-  console.log("Saved lead local:", lead);
+  const arr = JSON.parse(localStorage.getItem('kitv5_leads')||'[]');
+  arr.push({...lead,ts:new Date().toISOString()});
+  localStorage.setItem('kitv5_leads',JSON.stringify(arr));
 }
 
 async function onFormSubmit(e){
@@ -264,34 +187,19 @@ async function onFormSubmit(e){
   const f = document.getElementById('leadForm');
   const email = f.email.value.trim();
   const zip = f.zip.value.trim();
-  const human = document.getElementById('humanCheck').checked;
-  if(!human){ alert("Please confirm you're a real person."); return false; }
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!re.test(email)){ alert("Enter a valid email"); return false; }
-  saveLeadLocally({email, zip});
-  trackEvent('lead_collected',{email_domain: email.split('@')[1]});
+  if(!document.getElementById('humanCheck').checked){
+    alert("Confirm you are a real person."); return false;
+  }
+  saveLeadLocally({email,zip});
   const offer = await chooseOffer();
   const url = new URL(offer);
-  url.searchParams.set('email', email);
-  url.searchParams.set('zip', zip);
-  url.searchParams.set('src','kit_v5');
-  trackEvent('redirect_to_offer',{offer});
-  setTimeout(()=>{ window.location.href = url.toString(); }, 600);
-  return false;
+  url.searchParams.set('email',email);
+  url.searchParams.set('zip',zip);
+  setTimeout(()=>{window.location.href = url.toString();},500);
 }
 
-/* ---------- INIT ---------- */
-(async function init(){
-  initPixels();
-  initTimer();
-  document.getElementById('heroImage').alt = 'Prize image';
-  try{
-    const country = await detectCountry();
-    if(country){
-      console.log("Detected country:", country);
-    }
-  }catch(e){}
-})();
+initTimer();
 </script>
+
 </body>
 </html>
