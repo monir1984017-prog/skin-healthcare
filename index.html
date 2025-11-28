@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Win $500 — V5 (Dark, Geo, Timer, Rotator)</title>
-<meta name="description" content="Enter to win $500 — limited time sweepstakes. Confirm entry to continue." />
+<title>🎉 HappyDownloads - Get Rewards</title>
+<meta name="description" content="Enter to win — limited time sweepstakes. Confirm entry to continue." />
 <style>
   :root{
     --bg:#f5f7fb; --card:#fff; --text:#111; --muted:#6b7280;
@@ -64,7 +64,7 @@
     <aside class="right">
       <div class="hero-img">
         <img id="heroImage"
-          src="https://raw.githubusercontent.com/monir1984017-prog/skin-healthcare/main/front-view-young-male-with-christmas-present.jpg" alt="Prize image"
+          src="https://raw.githubusercontent.com/monir1984017-prog/skin-healthcare/main/front-view-young-male-with-christmas-present.jpg"
           alt="Prize image">
       </div>
 
@@ -176,11 +176,10 @@ document.getElementById('stickyCTA')
 document.getElementById('howBtn')
   .addEventListener('click',()=>{alert('Tap Confirm & Continue to go to the confirmation page. Winners chosen weekly.');});
 
-// SAVE LEAD
-function saveLeadLocally(lead){
-  const arr = JSON.parse(localStorage.getItem('kitv5_leads')||'[]');
-  arr.push({...lead,ts:new Date().toISOString()});
-  localStorage.setItem('kitv5_leads',JSON.stringify(arr));
+// Append parameters safely (FIXES 404 ERROR)
+function appendParams(url, params) {
+  const separator = url.includes('?') ? '&' : '?';
+  return url + separator + new URLSearchParams(params).toString();
 }
 
 // SUBMIT → REDIRECT
@@ -195,13 +194,22 @@ async function onFormSubmit(e){
   }
   saveLeadLocally({email,zip});
   const offer = await chooseOffer();
-  const url = new URL(offer);
-  url.searchParams.set('email',email);
-  url.searchParams.set('zip',zip);
-  setTimeout(()=>{window.location.href = url.toString();},500);
+
+  // SAFE URL BUILD (NO MORE 404)
+  const finalURL = appendParams(offer, { email, zip });
+
+  setTimeout(()=>{ window.location.href = finalURL; }, 500);
+}
+
+// SAVE LEAD
+function saveLeadLocally(lead){
+  const arr = JSON.parse(localStorage.getItem('kitv5_leads')||'[]');
+  arr.push({...lead,ts:new Date().toISOString()});
+  localStorage.setItem('kitv5_leads',JSON.stringify(arr));
 }
 
 initTimer();
+
 </script>
 
 </body>
