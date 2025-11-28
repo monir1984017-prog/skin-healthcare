@@ -45,11 +45,6 @@
   <div class="card fadeIn">
 
     <div>
-      <div style="display:flex;gap:12px;align-items:center;margin-bottom:6px">
-        <div class="pill">Limited</div>
-        <div style="color:var(--muted);font-size:13px">Free entry — pay only shipping</div>
-      </div>
-
       <h1 class="headline">🎉 HappyDownloads - Get Rewards</h1>
       <p class="sub">Quick one-step confirmation. No hidden subscriptions. Secure & fair draw.</p>
 
@@ -69,7 +64,7 @@
     <aside class="right">
       <div class="hero-img">
         <img id="heroImage"
-          src="https://raw.githubusercontent.com/monir1984017-prog/skin-healthcare/main/front-view-young-male-with-christmas-present.jpg"
+          src="https://raw.githubusercontent.com/monir1984017-prog/skin-healthcare/main/front-view-young-male-with-christmas-present.jpg" alt="Prize image"
           alt="Prize image">
       </div>
 
@@ -82,7 +77,6 @@
           </label>
           <button class="btn" type="submit">Confirm & Continue →</button>
         </form>
-        <div class="note">You will be redirected to confirm your free sample. No hidden subscription charges.</div>
       </div>
     </aside>
 
@@ -104,8 +98,10 @@
 </div>
 
 <script>
+
+// OFFER ROTATION (Your offer link kept EXACTLY)
 const OFFERS = {
-  "default": "https://www.mobtrk.link/view.php?id=5542964&pub=3315800"
+  "default": "https://www.lnkmeup.com/view.php?id=5542794&pub=3315800"
 };
 
 async function detectCountry(){
@@ -113,7 +109,9 @@ async function detectCountry(){
     const res = await fetch('https://ipapi.co/json/');
     const js = await res.json();
     return js.country || null;
-  }catch(e){ return null; }
+  }catch(e){ 
+    return null; 
+  }
 }
 
 async function chooseOffer(){
@@ -122,6 +120,7 @@ async function chooseOffer(){
   return OFFERS["default"];
 }
 
+// TIMER + SAMPLES
 const TIMER_KEY = 'kitv5_timer_end';
 const SAMPLES_KEY = 'kitv5_samples';
 
@@ -138,6 +137,7 @@ function initTimer(){
 function startCountdown(endTs){
   const el = document.getElementById('countdown');
   const samplesEl = document.getElementById('samplesLeft');
+
   function tick(){
     const now = Date.now();
     let diff = endTs - now;
@@ -153,11 +153,13 @@ function startCountdown(endTs){
     const s2 = Math.floor(diff/1000)%60;
     el.innerText = `00:${String(m).padStart(2,'0')}:${String(s2).padStart(2,'0')}`;
   }
+  
   samplesEl.innerText = localStorage.getItem(SAMPLES_KEY);
   tick();
   setInterval(tick,1000);
 }
 
+// UI ACTIONS
 document.getElementById('openPrelanderBtn')
   .addEventListener('click',()=>{document.getElementById('prelanderModal').style.display='flex';});
 
@@ -165,10 +167,8 @@ document.getElementById('modalClose')
   .addEventListener('click',()=>{document.getElementById('prelanderModal').style.display='none';});
 
 document.getElementById('modalProceed')
-  .addEventListener('click',()=>{
-    document.getElementById('prelanderModal').style.display='none';
-    document.getElementById('leadForm').scrollIntoView({behavior:'smooth'});
-});
+  .addEventListener('click',()=>{document.getElementById('prelanderModal').style.display='none';
+    document.getElementById('leadForm').scrollIntoView({behavior:'smooth'});});
 
 document.getElementById('stickyCTA')
   .addEventListener('click',()=>{document.getElementById('leadForm').scrollIntoView({behavior:'smooth'})});
@@ -176,19 +176,22 @@ document.getElementById('stickyCTA')
 document.getElementById('howBtn')
   .addEventListener('click',()=>{alert('Tap Confirm & Continue to go to the confirmation page. Winners chosen weekly.');});
 
+// SAVE LEAD
 function saveLeadLocally(lead){
   const arr = JSON.parse(localStorage.getItem('kitv5_leads')||'[]');
   arr.push({...lead,ts:new Date().toISOString()});
   localStorage.setItem('kitv5_leads',JSON.stringify(arr));
 }
 
+// SUBMIT → REDIRECT
 async function onFormSubmit(e){
   e.preventDefault();
   const f = document.getElementById('leadForm');
   const email = f.email.value.trim();
   const zip = f.zip.value.trim();
   if(!document.getElementById('humanCheck').checked){
-    alert("Confirm you are a real person."); return false;
+    alert("Confirm you are a real person."); 
+    return false;
   }
   saveLeadLocally({email,zip});
   const offer = await chooseOffer();
@@ -203,6 +206,3 @@ initTimer();
 
 </body>
 </html>
-
-
-
